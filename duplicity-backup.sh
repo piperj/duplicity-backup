@@ -168,6 +168,9 @@ export SIGN_PASSPHRASE
 if [[ -n "$FTP_PASSWORD" ]]; then
   export FTP_PASSWORD
 fi
+if [[ -n "$HOME" ]]; then
+  export HOME
+fi
 
 LOGFILE="${LOGDIR}${LOG_FILE}"
 DUPLICITY="$(which duplicity)"
@@ -384,7 +387,7 @@ include_exclude()
 
   for exclude in ${EXCLIST[@]}
   do
-    TMP=" --exclude ""'"$exclude"'"
+    TMP=" --exclude=""'"$exclude"'"
     EXCLUDE=$EXCLUDE$TMP
   done
   
